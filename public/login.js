@@ -14,27 +14,31 @@ firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth()
 const database = firebase.database()
 
+function Nama() {
+  document.getElementById("label").innerHTML= "name";
+}
+
 function login(){
+  
     email = document.getElementById('eemail').value
     password = document.getElementById('lpassword').value
-
+    alert("email: "+email +"\npassword : " +password )//remove before deployment
     auth.signInWithEmailAndPassword(email, password)
+     
     .then(function() {
       var user = auth.currentUser
       var database_ref = database.ref()
       var user_data = {
       last_login : Date.now()
     }
-      
       // Push to Firebase Database
       database_ref.child('users/' + user.uid).update(user_data)
-  
-      alert('User Logged In!!')
-      location.href = 'index.html';
-  
+      location.href='Dashboard.html';
+        
     })
     .catch(function(error) {
       // Firebase will use this to alert of its errors
+      alert('User failed Logged In!!') 
       var error_code = error.code
       var error_message = error.message
   

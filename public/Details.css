@@ -1,9 +1,6 @@
- .u-section-1 {
-  background-image: none;
-  
-
- 
-}
+ .u-layout {
+   height: fit-content;
+ }
 
 .u-section-1 .u-sheet-1 {
   height: 100%;
@@ -13,8 +10,6 @@
 .u-section-1 .u-layout-wrap-1 {
   margin-top: 60px;
   margin-bottom: 11px;
-  
-
 }
 
 .u-section-1 .u-layout-cell-1 {
@@ -117,6 +112,14 @@
   padding: 30px;
 }
 
+.u-section-1 {
+  background-image: none;
+  
+}
+.Belakang {
+  background-color: aqua;
+  height: 100%;
+}
 @media (max-width: 1199px) {
   .u-section-1 .u-sheet-1 {
     min-height: 827px;
@@ -135,11 +138,11 @@
   }
 
   .u-section-1 .u-group-1 {
-   height: max-content;     
+   height: fit-content;   
   }
 
   .u-section-1 .u-layout-cell-3 {
-    height: 700px;
+    height: 100%;
   }
 }
 
@@ -182,6 +185,7 @@
   .u-section-1 .u-container-layout-2 {
     padding-left: 10px;
     padding-right: 10px;
+    height: fit-content;
   }
 
   .u-section-1 .u-container-layout-3 {

@@ -41,8 +41,7 @@ function register(){
             
         }
         database_ref.child('users/'+ user.uid).set(user_data)
-        alert('User Created')
-        location.href = 'index.html';
+        alert('User Created')     
     })
     .catch(function(error){
         var error_code = error.code
@@ -51,7 +50,6 @@ function register(){
         alert(error_message)
     })
 }
-
     
 function validate_email(Email){
     expression = /^[^@]+@\w+(\.\w+)+\w$/
@@ -60,5 +58,4 @@ function validate_email(Email){
     } else{
         return false
     }
-
 }
