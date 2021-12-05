@@ -1,14 +1,21 @@
-const database = firebase.database()
+var database = firebase.database()
 
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     // User is signed in.
     var user = firebase.auth().currentUser;
-
+    const uid = user.uid;
+    alert(uid);
     if(user != null){
 
       var email_id = user.uid;
-      document.getElementById("userName").innerHTML = "Hi " + email_id;
+      // document.getElementById("userName").innerHTML = "Hi " + email_id;
+      var user_ref = database.ref('users/' + uid + '/full_name')
+        user_ref.on('value', function(snapshot){
+          var data = snapshot.val()
+          alert(data);
+          document.getElementById("userName").innerHTML = "Hi " + data;
+        })
       // const uid = user.uid;
       // const name = user.full_name;
       // document.getElementById("userName").innerHTML= name;
@@ -19,6 +26,17 @@ firebase.auth().onAuthStateChanged(function(user) {
     // No user is signed in.
   }
 });
+
+// function get(){
+//   var user = firebase.auth().currentUser
+
+//   var user_ref = database.ref('user/'+ user)
+//   user_ref.on('value', function(snapshot){
+//     var data = snapshot.val()
+//     document.getElementById("userName").innerHTML = "Hi " + data;
+//   })
+// }
+
 
 
 
