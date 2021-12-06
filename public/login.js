@@ -34,7 +34,7 @@ function login(){
 
       // Push to Firebase Database
       database_ref.child('users/' + user.uid).update(user_data)
-      location.href='Dashboard.html';
+      window.location.href='Dashboard.html';
       alert(user);
         
     })
