@@ -19,7 +19,7 @@ function Nama() {
 }
 
 function login(){
-  
+  //  window.location.href='Dashboard.html';
     email = document.getElementById('eemail').value
     password = document.getElementById('lpassword').value
     alert("email: "+email +"\npassword : " +password )//remove before deployment
@@ -36,7 +36,6 @@ function login(){
       database_ref.child('users/' + user.uid).update(user_data)
       window.location.href='Dashboard.html';
       alert(user);
-        
     })
     .catch(function(error) {
       // Firebase will use this to alert of its errors
@@ -46,4 +45,5 @@ function login(){
   
       alert(error_message)
     })
+    
 }

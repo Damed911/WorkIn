@@ -30,15 +30,13 @@ function register(){
     .then(function(){
         var user = auth.currentUser
         var database_ref = database.ref()
-
-        var user_data = {
+           var user_data = {
             full_name : Name,
             username : Username,
             email : Email,
             password : Password,
             phone : Phone,
-            last_login : Date.now()
-            
+            last_login : Date.now()  
         }
         database_ref.child('users/'+ user.uid).set(user_data)
         alert('User Created')     
@@ -46,7 +44,6 @@ function register(){
     .catch(function(error){
         var error_code = error.code
         var error_message = error.message
-
         alert(error_message)
     })
 }
