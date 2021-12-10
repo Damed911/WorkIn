@@ -11,7 +11,7 @@ function createProject(){
         duration = document.getElementById('durationField').value
         workHours = document.getElementById('work_hoursField').value
         salary = document.getElementById('salaryField').value
-        decription = document.getElementById('descriptionField').value
+        description = document.getElementById('descriptionField').value
         responsibilities = document.getElementById('responsibilitiesField').value
         requirements = document.getElementById('requirementsField').value 
 
@@ -19,11 +19,13 @@ function createProject(){
         const projectsRef = firebase.database().ref('projects')  
         projectsRef.push({
             createdBy : uid,
+            dateCreated : Date.now(),
+            likeCount : 0,
             caption: caption,
             duration: duration,
             workHours: workHours ,
             salary: salary,
-            decription: decription,
+            description: description,
             responsibilities: responsibilities,
             requirements: requirements
         })
