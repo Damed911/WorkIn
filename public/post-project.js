@@ -3,12 +3,10 @@ const db = getDatabase();
 const ref = db.ref('https://workin-df7eb-default-rtdb.firebaseio.com/');
 const { getDatabase } = require('firebase-admin/database');
 function createProject(){
-    alert('trying')
+    
     var user = firebase.auth().currentUser;
-    const uid = user.uid;
-    alert(uid)
+    const uid = user.uid;   
     if(user != null){
-        alert('reading')
         caption = document.getElementById('captionField').value
         duration = document.getElementById('durationField').value
         workHours = document.getElementById('work_hoursField').value
@@ -31,5 +29,4 @@ function createProject(){
         })
         alert('Project Created')     
     }
-    
 }
