@@ -33,12 +33,13 @@ auth.createUserWithEmailAndPassword(Email, Password)
     var database_ref = database.ref()
     
     var user_data = {
-        company_name : Name,
+        companyName : Name,
         Username : Username,
         Email : Email,
         Contact : Contact,
         password : Password,
-        Password_confirm : Password_confirm
+        passwordConfirm : Password_confirm,
+        companyDescription : ""
     }
     database_ref.child('company/'+ user.uid).set(user_data)
     alert('User Created')     
