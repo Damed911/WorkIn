@@ -50,8 +50,8 @@ function displayData(){
           +      "<a href='https://nicepage.online' class='u-border-none u-btn u-btn-round u-button-style u-custom-color-1 u-hover-palette-1-light-1 u-radius-5 u-btn-3'>Share</a>"
           +    "</div>"
           +  "</div>"
-        +  "</div>"
-        +"</div>"+postDiv.innerHTML;
+          +  "</div>"
+          +"</div>"+postDiv.innerHTML;
     }
   })
 }
@@ -63,6 +63,7 @@ function bookmark(key){
     var data = snapshot.val();
     console.log(data);
     
+    //membuat bookmarks baru
     const bookmarksRef = firebase.database().ref('bookmarks')  
         bookmarksRef.push({
             postId : key,
