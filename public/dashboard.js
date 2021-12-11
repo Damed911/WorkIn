@@ -45,7 +45,7 @@ function displayData(){
           +      "<img class='u-image u-image-circle u-image-1' src='images/Foto_profil.jpg'  data-image-width='1280' data-image-height='852'>"
           +      "<p id='postDescription'class='u-text u-text-4'>"+value.description+"</p>"
           +      "<p id='postLikeCount'class='u-text u-text-default u-text-5'>"+value.likeCount+" People liked this</p>"
-          +      "<a id='"+data.uid+"' onclick='bookmark(this.id)' class='u-border-none u-btn u-btn-round u-button-style u-custom-color-1 u-hover-palette-1-light-1 u-radius-5 u-btn-1'>Bookmark</a>"
+          +      "<a id='"+key+"' onclick='bookmark(this.id)' class='u-border-none u-btn u-btn-round u-button-style u-custom-color-1 u-hover-palette-1-light-1 u-radius-5 u-btn-1'>Bookmark</a>"
           +      "<a href='https://nicepage.online' class='u-border-none u-btn u-btn-round u-button-style u-custom-color-1 u-hover-palette-1-light-1 u-radius-5 u-btn-2'>Like</a>"
           +      "<a href='https://nicepage.online' class='u-border-none u-btn u-btn-round u-button-style u-custom-color-1 u-hover-palette-1-light-1 u-radius-5 u-btn-3'>Share</a>"
           +    "</div>"
@@ -56,7 +56,20 @@ function displayData(){
   })
 }
 
-// function bookmark(key){
-//   alert(key)
-
-// }
+function bookmark(key){
+  firebase.database().ref('projects/'+key).once('value').then(function(snapshot){
+    var user = firebase.auth().currentUser;
+    const uid = user.uid;
+    var data = snapshot.val();
+    console.log(data);
+    
+    const bookmarksRef = firebase.database().ref('bookmarks')  
+        bookmarksRef.push({
+            postId : key,
+            dateCreated : Date.now(),
+            userId: uid
+        })
+        alert('Bookmarks Created')  
+    }
+  )
+}
