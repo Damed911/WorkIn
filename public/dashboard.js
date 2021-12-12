@@ -28,7 +28,7 @@ function displayData(){
     var postDiv = document.getElementById('post');
     var data = snapshot.val();
     // console.log(data);
-
+    post.innerHTML="";
     //menampilkan semua post
     for(let[key,value] of Object.entries(data)){
       var hari = ['Mon','Tue','Wed','Thurs','Fri','Sat','Sun'];
@@ -45,7 +45,7 @@ function displayData(){
           +"<h4 class='card-title'>"+value.title+"</h4>"
           +"<p class='card-text' style='color: var(--bs-gray-600);font-size: 10px;text-align: left;margin: -10px 0px 0px;'>"+days+" "+month+", "+hours+":"+minute+"</p>"
           +"<p class='card-text' style='font-size: 12px;margin: 13px 0px 20px ;'>"+value.caption+"</p>"
-          +"<p class='card-text' style='font-size: 12px;margin: 0px 0px 5px;'>"+value.likeCount+" People liked this</p><button class='btn btn-primary' type='button' style='border-radius: 37;font-size: 12px;width: 90px;background: #242e4d;border-width: 0px;'>Like</button><button id="+key+" onclick='displayDetail(this.id)' class='btn btn-primary' type='button' style='border-radius: 37;font-size: 12px;width: 90px;background: #242e4d;border-width: 0px;transform: translate(25px);'>Details</button><button class='btn btn-primary float-end' type='button' style='transform: translate(-125px);font-size: 12px;width: 90px;color: rgb(255, 255, 255);background: #242e4d;border-width: 0px;'>Share</button><button id='"+key+"' onclick='bookmark(this.id)' class='btn btn-primary float-end justify-content-xxl-end' type='button' style='transform: translate(75px);font-size: 12px;width: 90px;background: #242e4d;border-width: 0px;'>Bookmarks</button>"
+          +"<p class='card-text' style='font-size: 12px;margin: 0px 0px 5px;'>"+value.likeCount+" People liked this</p><button id="+key+" onclick='like(this.id)' class='btn btn-primary' type='button' style='border-radius: 37;font-size: 12px;width: 90px;background: #242e4d;border-width: 0px;'>Like</button><button id="+key+" onclick='displayDetail(this.id)' class='btn btn-primary' type='button' style='border-radius: 37;font-size: 12px;width: 90px;background: #242e4d;border-width: 0px;transform: translate(25px);'>Details</button><button id="+key+" onclick='share(this.id)' class='btn btn-primary float-end' type='button' style='transform: translate(-125px);font-size: 12px;width: 90px;color: rgb(255, 255, 255);background: #242e4d;border-width: 0px;'>Share</button><button id='"+key+"' onclick='bookmark(this.id)' class='btn btn-primary float-end justify-content-xxl-end' type='button' style='transform: translate(75px);font-size: 12px;width: 90px;background: #242e4d;border-width: 0px;'>Bookmarks</button>"
           +"</div>"+postDiv.innerHTML;
     }
   })
@@ -61,6 +61,7 @@ function displayBookmarks(){
     var user = firebase.auth().currentUser;
     const uid = user.uid;
     var data = snapshot.val();
+    bookmarks.innerHTML="";
     // console.log(data);
 
     //menampilkan semua Bookmarks
@@ -118,7 +119,26 @@ function bookmark(key){
             dateCreated : Date.now(),
             userId: uid
         })
-        alert('Bookmarks Created')  
+        displayBookmarks();
     }
   )
+}
+
+function like(id){
+  firebase.database().ref('projects/'+id).once('value').then(function(snapshot){
+    var data = snapshot.val();
+    var likeCount=data.likeCount+1;
+
+    const projectsRef = firebase.database().ref('projects/'+id)
+        projectsRef.update({
+            likeCount : likeCount
+        })
+        displayData();
+  })
+}
+
+function share(id){
+  var link='https://workin-test-69bba.web.app/Details.html?projectId='+id;
+  navigator.clipboard.writeText(link);
+  alert('copied to clipboard');
 }
