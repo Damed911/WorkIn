@@ -12,8 +12,12 @@ firebase.auth().onAuthStateChanged(function(user) {
       var user_ref = database.ref('users/' + uid + '/full_name')
         user_ref.on('value', function(snapshot){
           var data = snapshot.val()
-          
-          document.getElementById("userName").innerHTML = "Hi " + data;
+          if(data==null){
+            document.getElementById("userName").innerHTML = "Profile";
+          }
+          else{
+            document.getElementById("userName").innerHTML = "Hi " + data;
+          }
         })
     }
     displayData();
