@@ -1,7 +1,7 @@
 var database = firebase.database()
-const db = getDatabase();
-const ref = db.ref('https://workin-df7eb-default-rtdb.firebaseio.com/');
-const { getDatabase } = require('firebase-admin/database');
+// const db = getDatabase();
+// const ref = db.ref('https://workin-df7eb-default-rtdb.firebaseio.com/');
+// const { getDatabase } = require('firebase-admin/database');
 function createProject(){
     
     var user = firebase.auth().currentUser;
