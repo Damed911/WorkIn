@@ -12,12 +12,8 @@ firebase.auth().onAuthStateChanged(function(user) {
       var user_ref = database.ref('users/' + uid + '/full_name')
         user_ref.on('value', function(snapshot){
           var data = snapshot.val()
-          if(data==null){
-            document.getElementById("userName").innerHTML = "Profile";
-          }
-          else{
-            document.getElementById("userName").innerHTML = "Hi " + data;
-          }
+          
+          document.getElementById("userName").innerHTML = "Hi " + data;
         })
     }
     displayData();
@@ -163,8 +159,18 @@ function like(id){
   })
 }
 
+const logout = document.querySelector('#logout');
+logout.addEventListener('click', e => {
+  e.preventDefault();
+  auth.signOut().then(() => {
+    console.log("user signed out");
+    window.location.href='Login-Page.html';
+  });
+})
+
 function share(id){
   var link='https://workin-test-69bba.web.app/Details.html?projectId='+id;
   navigator.clipboard.writeText(link);
   alert('copied to clipboard');
 }
+

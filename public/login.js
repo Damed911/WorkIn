@@ -34,8 +34,9 @@ function login(){
 
       // Push to Firebase Database
       database_ref.child('users/' + user.uid).update(user_data)
-      window.location.href='Dashboard.html';
+      
       alert(user);
+
     })
     .catch(function(error) {
       // Firebase will use this to alert of its errors
@@ -45,5 +46,22 @@ function login(){
   
       alert(error_message)
     })
+
+    firebase.auth().onAuthStateChanged(function(user) {
+      var user = firebase.auth().currentUser;
+      if (user) {
+         console.log('signed in!');
+         console.log(user.uid);
+         window.location = 'Dashboard.html';
+         // User is signed in, call db storage function here
+      } else {
+         // No user is signed in.
+         console.log('not signed in');
+      }
+     });
+
+
+
+
     
 }
