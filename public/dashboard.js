@@ -18,10 +18,32 @@ firebase.auth().onAuthStateChanged(function(user) {
     }
     displayData();
     displayBookmarks();
+    displayTombolCreateProject()
   } else {
     // No user is signed in.
   }
 });
+
+function displayTombolCreateProject(){
+  firebase.database().ref('company/').once('value').then(function(snapshot){
+    var postDiv = document.getElementById('createButton');
+    var data = snapshot.val();
+    var user = firebase.auth().currentUser;
+    const uid = user.uid;
+
+    for(let[key,value] of Object.entries(data)){
+      if(key==uid){
+        postDiv.innerHTML = 
+        "<button  class='btn btn-primary' type='button' style='border-radius: 37; margin-bottom: 20px; font-size: 12px;width: 150px;background: #242e4d;border-width: 0px;'><a href='Post-Project.html'style='text-decoration: none; color: #ffff; ' >Create Project</a></button>"
+        +postDiv.innerHTML;
+      }
+
+    //menampilkan semua post
+      
+    }
+  })
+}
+
 
 function displayData(){
   firebase.database().ref('projects/').once('value').then(function(snapshot){
