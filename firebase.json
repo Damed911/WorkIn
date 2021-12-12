@@ -1,5 +1,12 @@
 {
   "hosting": {
+    "redirects":[
+      {
+        "source": "/details",
+        "destination": "Details.html",
+        "type": 302
+      }
+    ],
     "public": "public",
     "ignore": [
       "firebase.json",

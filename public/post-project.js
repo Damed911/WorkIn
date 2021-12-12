@@ -7,6 +7,7 @@ function createProject(){
     var user = firebase.auth().currentUser;
     const uid = user.uid;   
     if(user != null){
+        title = document.getElementById('titleField').value
         caption = document.getElementById('captionField').value
         duration = document.getElementById('durationField').value
         workHours = document.getElementById('work_hoursField').value
@@ -21,6 +22,7 @@ function createProject(){
             createdBy : uid,
             dateCreated : Date.now(),
             likeCount : 0,
+            title: title,
             caption: caption,
             duration: duration,
             workHours: workHours ,

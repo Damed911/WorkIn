@@ -17,6 +17,21 @@
     href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
 
 
+  <script>
+    function getParams() {
+    var idx = document.URL.indexOf('?');
+    var params;
+  
+    var pairs = document.URL;
+    
+    nameVal = pairs.split('=');
+    params  = nameVal[1];
+      
+    return params;
+    }
+    params = getParams();
+
+  </script>
   <script type="application/ld+json">{
 		"@context": "http://schema.org",
 		"@type": "Organization",
@@ -171,8 +186,8 @@
                 <div class="u-container-layout u-container-layout-2">
                   <div class="u-absolute-hcenter u-container-style u-expanded u-group u-radius-15 u-shape-round u-white u-group-1">
                     <div class="u-container-layout u-container-layout-3">
-                      <h1 class="u-text u-text-default u-text-1"> Landing Page Developer</h1>
-                      <h6 class="u-text u-text-default u-text-2"> PT. Kerja Sejahtera . Bengkulu 3 Days Ago&nbsp;</h6>
+                      <h1 id="title" class="u-text u-text-default u-text-1"></h1>
+                      <h6 id="companyName" class="u-text u-text-default u-text-2">&nbsp;</h6>
                       <span
                         class="u-border-2 u-border-black u-icon u-icon-circle u-spacing-5 u-text-black u-icon-1"><svg
                           class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 56 56" style="">
@@ -188,7 +203,7 @@
       c0.075,0.495,0.501,0.85,0.987,0.85c0.05,0,0.101-0.004,0.151-0.012c2.227-0.337,4.548-0.021,4.684-0.002
       C52.49,26.872,56,31.161,56,35.972C56,41.501,51.501,46,45.972,46H33H25z"></path>
                         </svg></span>
-                      <h5 class="u-text u-text-default u-text-3"> 6-12 bulan</h5>
+                      <h5 id="duration" class="u-text u-text-default u-text-3"></h5>
                       <span
                         class="u-border-2 u-border-black u-icon u-icon-circle u-spacing-5 u-text-black u-icon-2"><svg
                           class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 56 56" style="">
@@ -204,7 +219,7 @@
       c0.075,0.495,0.501,0.85,0.987,0.85c0.05,0,0.101-0.004,0.151-0.012c2.227-0.337,4.548-0.021,4.684-0.002
       C52.49,26.872,56,31.161,56,35.972C56,41.501,51.501,46,45.972,46H33H25z"></path>
                         </svg></span>
-                      <h5 class="u-text u-text-default u-text-4"> Monday - Friday, 08.00 - 17.00</h5>
+                      <h5 id="workHours" class="u-text u-text-default u-text-4"></h5>
                       <span
                         class="u-border-2 u-border-black u-icon u-icon-circle u-spacing-5 u-text-black u-icon-3"><svg
                           class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 56 56" style="">
@@ -220,65 +235,13 @@
         c0.075,0.495,0.501,0.85,0.987,0.85c0.05,0,0.101-0.004,0.151-0.012c2.227-0.337,4.548-0.021,4.684-0.002
         C52.49,26.872,56,31.161,56,35.972C56,41.501,51.501,46,45.972,46H33H25z"></path>
                         </svg></span>
-                      <h5 class="u-text u-text-default u-text-5"> $15/hour</h5>
-                      <p class="u-align-justify u-text u-text-default u-text-6"> The ideal candidate will be responsible
-                        for maintaining and intermittently improving our current network configuration and
-                        infrastructure. You will design our revamped network infrastructure with the goal of maximizing
-                        our network performance. You will also provide troubleshooting and configuration support by
-                        using your strong technical skills in Linux and Windows environments and IP networking. The
-                        ideal candidate will be responsible for maintaining and intermittently improving our current
-                        network configuration and infrastructure. You will design our revamped network infrastructure
-                        with the goal of maximizing our network performance. You will also provide troubleshooting and
-                        configuration support by using your strong technical skills in Linux and Windows environments
-                        and IP networking.The ideal candidate will be responsible for maintaining and intermittently
-                        improving our current network configuration and infrastructure. You will design our revamped
-                        network infrastructure with the goal of maximizing our network performance. You will also
-                        provide troubleshooting and configuration support by using your strong technical skills in Linux
-                        and Windows environments and IP networking.The ideal candidate will be responsible
-                        for maintaining and intermittently improving our current network configuration and
-                        infrastructure. You will design our revamped network infrastructure with the goal of maximizing
-                        our network performance. You will also provide troubleshooting and configuration support by
-                        using your strong technical skills in Linux and Windows environments and IP networking. The
-                        ideal candidate will be responsible for maintaining and intermittently improving our current
-                        network configuration and infrastructure. You will design our revamped network infrastructure
-                        with the goal of maximizing our network performance. You will also provide troubleshooting and
-                        configuration support by using your strong technical skills in Linux and Windows environments
-                        and IP networking.The ideal candidate will be responsible for maintaining and intermittently
-                        improving our current network configuration and infrastructure. You will design our revamped
-                        network infrastructure with the goal of maximizing our network performance. You will also
-                        provide troubleshooting and configuration support by using your strong technical skills in Linux
-                        and Windows environments and IP networking&nbsp;</p>
+                      <h5 id="salary" class="u-text u-text-default u-text-5"></h5>
+                      <p id="description" class="u-align-justify u-text u-text-default u-text-6"> &nbsp;</p>
                       <p class="u-text u-text-default u-text-7"> Responsibilities</p>
-                      <ul class="u-text u-text-default u-text-8">
-                        <li>
-                          <span style="font-size: 1.25rem;"></span>Maintain, implement, and troubleshoot networks&nbsp;
-                        </li>
-                        <li>
-                          <span style="font-size: 1.25rem;"></span>Design and support our network systems and
-                          infrastructure&nbsp;
-                        </li>
-                        <li>
-                          <span style="font-size: 1.25rem;"></span>Configure and operate routers and switches
-                        </li>
-                        <li>Monitor network performance and make recommendations based on performance analysis</li>
-                      </ul>
-                      <p class="u-text u-text-default u-text-9"> Responsibilities</p>
-                      <ul class="u-text u-text-default u-text-10">
-                        <li>
-                          <span style="font-size: 1.25rem;"></span>Maintain, implement, and troubleshoot networks&nbsp;
-                        </li>
-                        <li>
-                          <span style="font-size: 1.25rem;"></span>2 - 4 years' of experience with network
-                          administration in a Linux or Windows environment&nbsp;
-                        </li>
-                        <li>
-                          <span style="font-size: 1.25rem;"></span>Knowledge of IP networking fundamentals&nbsp;
-                        </li>
-                        <li> Have a valid CCNP certificate</li>
-                        <li>Preferably minimum 1 year experience in network maintenance, TCP/IP, Windows, Router, WAN,
-                          Experience in network distress shooting, Experience in routing, Switching, Bridging, Network
-                          Security &amp; VLAN</li>
-                      </ul>
+                      <p id="responsibilities" class="u-align-justify u-text u-text-default u-text-6"> &nbsp;</p>
+                      <p class="u-text u-text-default u-text-9"> Requirements</p>
+                      <p id="requirements" class="u-align-justify u-text u-text-default u-text-6">  &nbsp;</p>
+
                     </div>
                   </div>
                 </div>
@@ -293,7 +256,31 @@
     </section>
   
 
-
+    
 </body>
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+  <script>
+    var firebaseConfig = {
+    apiKey: "AIzaSyAyrUptJBfRavZ9Fv5ghdp7ADpvuzDWJTw",
+    authDomain: "workin-df7eb.firebaseapp.com",
+    databaseURL: "https://workin-df7eb-default-rtdb.firebaseio.com",
+    projectId: "workin-df7eb",
+    storageBucket: "workin-df7eb.appspot.com",
+    messagingSenderId: "480731653879",
+    appId: "1:480731653879:web:9ed025dfed2968923cd5f2",
+    measurementId: "G-T7FHBQJET7"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  </script>
+
+  <!-- Our script must be loaded after firebase references -->
+  <script src="details.js"></script>
 
 </html>
